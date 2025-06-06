@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Rolagem suave para os links de navegação
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -89,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Animação das barras de habilidade
   const skillSection = document.querySelector(".skills");
   const skillLevels = document.querySelectorAll(".skill-level");
 
@@ -108,32 +106,72 @@ document.addEventListener("DOMContentLoaded", function () {
   animateSkills();
 
   // Validação do formulário
-  const contactForm = document.querySelector(".contact-form");
+const contactForm = document.querySelector(".contact-form");
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value;
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); 
 
-      if (!name || !email || !subject || !message) {
-        alert("Por favor, preencha todos os campos");
-        return;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !subject || !message) {
+      alert("Por favor, preencha todos os campos");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      alert("Por favor, insira um endereço de e-mail válido");
+      return;
+    }
+
+    // evitar redirecionamento
+    fetch(contactForm.action, {
+      method: contactForm.method,
+      body: new FormData(contactForm),
+      headers: {
+        'Accept': 'application/json'
       }
-
-      if (!isValidEmail(email)) {
-        alert("Por favor, insira um endereço de e-mail válido");
-        return;
+    }).then(response => {
+      if (response.ok) {
+        mostrarMensagem();
+        contactForm.reset(); 
+      } else {
+        alert("Erro ao enviar o formulário.");
       }
-
-      alert("Obrigado pela sua mensagem! Entrarei em contato em breve.");
-      contactForm.reset();
+    }).catch(() => {
+      alert("Erro ao enviar o formulário.");
     });
-  }
 
-  //  Scroll-triggered animation
+    // evitar redirecionamento
+  });
+}
+
+function mostrarMensagem() {
+  const mensagem = document.getElementById('thankYouMessage');
+  mensagem.style.display = 'block';
+
+  setTimeout(() => {
+    mensagem.style.display = 'none';
+  }, 5000);
+}
+
+function isValidEmail(email) {
+  // Função simples para validar email
+  return /\S+@\S+\.\S+/.test(email);
+}
+
+
+
+function isValidEmail(email) {
+  return /\S+@\S+\.\S+/.test(email);
+}
+
+
+
+
   const heroContent = document.querySelector(".hero-content");
 
   if (heroContent) {
@@ -150,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(heroContent);
   }
 
-  // Funções auxiliares
   function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (

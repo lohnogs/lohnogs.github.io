@@ -6,8 +6,8 @@
   --text-primary: #212529;
   --text-secondary: #495057;
   --text-tertiary: #6c757d;
-  --accent: #7d0fc6;
-  --accent-hover: #941aa6;
+  --accent: #4b74ad;
+  --accent-hover:#374151;
   --border: #dee2e6;
   --shadow: rgba(0, 0, 0, 0.05);
   --shadow-strong: rgba(0, 0, 0, 0.1);
@@ -24,8 +24,8 @@
   --border: #333333;
   --shadow: rgba(0, 0, 0, 0.2);
   --shadow-strong: rgba(0, 0, 0, 0.4);
-  --accent: #a42ff2;
-  --accent-hover: #8628ab;
+  --accent: #2e3d52;
+  --accent-hover:#374151;
 }
 
 * {
@@ -53,14 +53,14 @@ body {
   padding: 0 20px;
 }
 
-/* Estado inicial: escondido e meio translúcido */
+
 .hidden {
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease-out;
 }
 
-/* Quando o elemento estiver visível */
+
 .show {
   opacity: 1;
   transform: translateY(0);
@@ -82,7 +82,7 @@ img {
   height: auto;
 }
 
-/* tipografia */
+
 h1,
 h2,
 h3,
@@ -135,7 +135,7 @@ p {
   border-radius: 2px;
 }
 
-/* Botões */
+
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -171,7 +171,7 @@ p {
   font-size: 0.875rem;
 }
 
-/* Header */
+
 header {
   position: fixed;
   top: 20px;
@@ -330,7 +330,6 @@ header .container {
 }
 
 
-/* Hero Sesão*/
 .hero {
   padding: 160px 0 100px;
   background-color: var(--bg-secondary);
@@ -420,7 +419,7 @@ header .container {
   color: var(--text-primary);
 }
 
-/* Projects Section */
+
 .projects {
   padding: 100px 0;
   background-color: var(--bg-primary);
@@ -494,7 +493,7 @@ header .container {
   gap: 10px;
 }
 
-/* Sesão Habilidades*/
+
 .skills {
   padding: 4rem 0;
   background-color: var(--bg);
@@ -522,11 +521,10 @@ header .container {
 
 .skill-card {
   background: #ffffff;
-  ;
   padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(124, 32, 129, 0.15);
+  box-shadow: 0 4px 10px #2e3d52;
   transition: background 0.3s, transform 0.3s;
   display: flex;
   align-items: center;
@@ -538,7 +536,7 @@ header .container {
   padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(124, 32, 129, 0.15);
+  box-shadow: 0 4px 10px #2e3d52;
   transition: background 0.3s, transform 0.3s;
   display: flex;
   align-items: center;
@@ -557,10 +555,6 @@ header .container {
 }
 
 
-
-
-
-/* sessão sobre mim*/
 .about {
   padding: 100px 0;
   background-color: var(--bg-primary);
@@ -590,7 +584,7 @@ header .container {
   margin-top: 2rem;
 }
 
-/* sesão contato */
+
 .contact {
   padding: 100px 0;
   background-color: var(--bg-secondary);
@@ -676,7 +670,7 @@ header .container {
   border-color: var(--accent);
 }
 
-/* Footer */
+
 footer {
   padding: 40px 0;
   background-color: var(--bg-secondary);
@@ -688,6 +682,34 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+
+.thank-you-message { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #445d7f;
+  border: 1px solid #2e2f2e;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000; 
+  display: none;
+}
+
+
+@media (max-width: 480px) {
+  .thank-you-message {
+    width: 90vw;          
+    max-width: 320px;     
+    padding: 15px 20px;   
+    font-size: 14px;      
+    border-radius: 8px;   
+  }
+}
+
 
 /* responsividade  */
 @media (max-width: 992px) {
