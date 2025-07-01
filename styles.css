@@ -392,20 +392,18 @@ header .container {
   font-family: Arial, sans-serif;
 }
 
-.hero-image {
-  flex: 0 0 45%;
-  display: flex;
-  justify-content: flex-end;
-}
+@media (max-width: 640px) {
+  .hero-content {
+    padding-inline: 1.25rem;
+  }
 
-.code-block {
-  background-color: var(--bg-tertiary);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 20px var(--shadow-strong);
-  width: 100%;
-  max-width: 450px;
-  overflow: hidden;
+  .hero-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
 }
 
 .code-block pre {
